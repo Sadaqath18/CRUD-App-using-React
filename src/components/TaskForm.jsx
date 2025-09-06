@@ -1,9 +1,11 @@
 import { useState } from "react"
 import { useTasks } from "../context/TaskContext"
+import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
 
 export default function TaskForm() {
-  const { addTask } = useTasks()
   const [task, setTask] = useState("")
+  const { addTask } = useTasks()
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -13,20 +15,13 @@ export default function TaskForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex gap-2 mb-6">
-      <input
-        type="text"
-        placeholder="Enter a task"
+    <form onSubmit={handleSubmit} className="flex gap-2 mb-4">
+      <Input
         value={task}
         onChange={(e) => setTask(e.target.value)}
-        className="flex-1 px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+        placeholder="Enter task..."
       />
-      <button
-        type="submit"
-        className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md"
-      >
-        Add
-      </button>
+      <Button type="submit">Add</Button>
     </form>
   )
 }

@@ -5,20 +5,24 @@ const TaskContext = createContext();
 export const TaskProvider = ({ children }) => {
   const [tasks, setTasks] = useState([]);
 
-  const addTask = (text) => {
-    setTasks([...tasks, { id: Date.now(), text }]);
+  const addTask = (task) => {
+    setTasks((prev) => [...prev, { id: Date.now(), text: task }]);
   };
 
-  const updateTask = (id, newText) => {
-    setTasks(tasks.map((t) => (t.id === id ? { ...t, text: newText } : t)));
+  const updateTask = (id, updatedText) => {
+    setTasks((prev) =>
+      prev.map((task) =>
+        task.id === id ? { ...task, text: updatedText } : task
+      )
+    );
   };
 
-  const deleteTask = (id) => {
-    setTasks(tasks.filter((t) => t.id !== id));
+  const removeTask = (id) => {
+    setTasks((prev) => prev.filter((task) => task.id !== id));
   };
 
   return (
-    <TaskContext.Provider value={{ tasks, addTask, updateTask, deleteTask }}>
+    <TaskContext.Provider value={{ tasks, addTask, removeTask }}>
       {children}
     </TaskContext.Provider>
   );
