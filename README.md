@@ -1,4 +1,4 @@
-# Advanced To-Do List App ✅
+# CRUD App ✅
 
 A modern and responsive **To-Do List Application** built with **React.js** and **Node.js**, featuring authentication, task management, and state management.
 
@@ -25,5 +25,5 @@ A modern and responsive **To-Do List Application** built with **React.js** and *
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/your-username/advanced-todo-list.git
+git clone https://github.com/Sadaqath18/advanced-todo-list.git
 cd advanced-todo-list
